@@ -7,19 +7,32 @@ while(True):
 
     t.printMenu()
 
-    t.loadDictionary("filename.txt")
+    t.loadDictionary("dictionary.txt")
 
-    txtIn = input()
+    txtIn = input("\n selezione un'opzione")
+    if not txtIn.isnumeric():
+        print("inserisci un numero valido")
+
+    scelta = int(txtIn)
+
+    if scelta == 1:
+        entry=input("inserisci<parola aliena><traduzione italiana> :").lower()
+        t.handleAdd(entry)
+    elif scelta == 2:
+        query = input("quale parola vuoi tradurre ? :").lower()
+        t.handleTranslate(query)
+    elif scelta == 3:
+        query = input("quale parola vuoi tradurre con il simbolo '?' :").lower()
+        t.handleWildCard(query)
+    elif scelta == 4:
+        for chiave,valore in t._dict.get_all().items():
+            print(f"{chiave} ---> {valore}")
+
+    elif scelta == 5:
+        break
+    else:
+        print("opzione non valida")
+
 
     # Add input control here!
 
-    if int(txtIn) == 1:
-        print()
-        txtIn = input()
-        pass
-    if int(txtIn) == 2:
-        pass
-    if int(txtIn) == 3:
-        pass
-    if int(txtIn) == 4:
-        break
