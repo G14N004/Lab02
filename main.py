@@ -1,5 +1,5 @@
 import translator as tr
-
+import networkx as nx
 t = tr.Translator()
 
 
@@ -25,7 +25,7 @@ while(True):
         query = input("quale parola vuoi tradurre con il simbolo '?' :").lower()
         t.handleWildCard(query)
     elif scelta == 4:
-        for chiave,valore in t._dict.get_all().items():
+        for chiave,valore in t._dict._dict.items():
             print(f"{chiave} ---> {valore}")
 
     elif scelta == 5:

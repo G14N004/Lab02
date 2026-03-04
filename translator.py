@@ -53,5 +53,11 @@ class Translator:
 
     def handleWildCard(self,query):
         # query is a string with a ? --> <par?la_aliena>
+        if query.count("?")!=1:
+            print("può contenere solo un carattere ?")
+            return
+        risultato=self._dict.translateWordWildCard(query)
+        print(risultato if risultato else "non trovata")
+
 
         pass
